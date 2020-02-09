@@ -23,6 +23,7 @@ const login_view = () => {
             </div>
             <div class="rivi">
               <button type="submit">Rekisteröidy</button>
+              
             </div>
         </form>
     </div>

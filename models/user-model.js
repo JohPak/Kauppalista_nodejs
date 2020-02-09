@@ -10,6 +10,11 @@ const user_schema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'note',
         req: true
+    }],
+    shoppinglist: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'shoppinglist',
+        req: true
     }]
 });
 const user_model = mongoose.model('user', user_schema);

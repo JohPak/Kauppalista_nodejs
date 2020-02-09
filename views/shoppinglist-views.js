@@ -1,4 +1,4 @@
-const notes_view = ((data) => {
+const shoppinglists_view = ((data) => {
     let html = `
     <html>
     <head>
@@ -16,19 +16,19 @@ const notes_view = ((data) => {
             <button class="logoutbtn" type="submit">Kirjaudu ulos</button>
             </form></div>
             </div> 
-            <h2>Kauppalistan ${data} tuotteet</h2>
+            <h2>Kauppalistat</h2>
     `;
 
 
-    data.notes.forEach((note) => {
+    data.shoppinglist.forEach((shoppinglist) => {
         html += `<div class="noteline"><div class="note">`;
-        html += note.text;
+        html += shoppinglist.text;
         html += `
             </div>
             <div class="deletebutton">
             <form action="delete-note" method="POST">
-                <input type="hidden" name="note_id" value="${note._id}">
-                <button type="submit">Poista</button>
+                <input type="hidden" name="note_id" value="${shoppinglist._id}">
+                <button type="submit">Poista kauppalista</button>
             </form>
             </div>
             </div>
@@ -36,9 +36,9 @@ const notes_view = ((data) => {
     });
 
     html += `
-        <form action="/add-note" method="POST">
-            <input type="text" name="note">
-            <button type="submit">Lisää uusi</button>
+        <form action="/add-shoppinglist" method="POST">
+            <input type="text" name="shoppinglist">
+            <button type="submit">Lisää uusi kauppalista</button>
         </form>
     </html>
     </body>
@@ -47,16 +47,16 @@ const notes_view = ((data) => {
 });
 
 
-const note_view = (data) => {
+const shoppinglist_view = (data) => {
     let html = `
     <html>
     <body>
-        Note text: ${data.text}
+        Shoppinglist text: ${data.text}
     </body>
     </html>
     `;
     return html;
 };
 
-module.exports.notes_view = notes_view;
-module.exports.note_view = note_view;
+module.exports.shoppinglist_view = shoppinglist_view;
+module.exports.shoppinglists_view = shoppinglists_view;

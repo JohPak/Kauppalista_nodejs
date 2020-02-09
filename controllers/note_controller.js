@@ -4,12 +4,14 @@ const note_views = require('../views/note-views');
 const get_notes = (req, res, next) => {
     const user = req.user;
     user.populate('notes')
+    user.populate('shoppinglist')
         .execPopulate()
         .then(() => {
             console.log('user:', user);
             let data = {
                 user_name: user.name,
-                notes: user.notes
+                notes: user.notes,
+                shoppinglist: user.shoppinglist
             };
             let html = note_views.notes_view(data);
             res.send(html);
@@ -47,6 +49,19 @@ const get_note = (req, res, next) => {
     });
 };
 
+const get_shoppinglist = (req, res, next) => {
+    const shoppinglist_id = req.params.id;
+    shoppinglist_model.findOne({
+        _id: shoppinglist_id
+    }).then((shoppinglist) => {
+        let data = {
+            text: shoppinglist.text
+        };
+        let html = shoppinglist_views.shoppintlist_view(data);
+        res.send(html);
+    });
+};
+
 const post_note = (req, res, next) => {
     const user = req.user;
     let new_note = note_model({
@@ -64,5 +79,6 @@ const post_note = (req, res, next) => {
 
 module.exports.get_notes = get_notes;
 module.exports.get_note = get_note;
+module.exports.get_shoppinglist = get_shoppinglist;
 module.exports.post_note = post_note;
 module.exports.post_delete_note = post_delete_note;

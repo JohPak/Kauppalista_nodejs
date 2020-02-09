@@ -20,9 +20,9 @@ button {
     height: 30px;
 }
 button:hover {
-    background: #fcca67;
-    border-color: #fcca67;
-    transition: all 0.2s ease 0s;
+  background: #fcca67;
+  border-color: #fcca67;
+  transition: all 0.2s ease 0s;
 }
 .ylapalkki {
   background-color:#00000075;
@@ -38,40 +38,39 @@ button:hover {
   padding-left: 10px;
   color: #ffffff;
   text-transform: uppercase;
-
 }
 .div_logout {
   display: inline;
-text-align: right;
+  text-align: right;
 }
-.logoutbtn {
-  display: inline;
-  height: 30px;
+.noteline {
+  display: block;
+  width: 100%;
+  background-color:#ffffff49;
 }
-
-.kauppalistat {
-  /* background-color:#ffffff49;
+form {
+  margin-bottom: 10px;
+}
+.note {
+  float: left;
   margin-top: 5px;
   margin-left: 10px;
   margin-right: 10px;
-  padding:5px; */
 }
-p {
-  margin:10px;
+.deletebutton {
+  text-align: right;
 }
+
+.logoutbtn {
+  display: inline;
+}
+
+
 input {
   margin:10px;
   height: 30px;
-
-
 }
-.noteline {
-  background-color:#ffffff49;
-  margin-top: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding:5px;
-}
+
 
 /* kun ikkuna on <=600px, niin: */
 @media only screen and (max-width: 600px) {

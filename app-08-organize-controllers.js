@@ -11,6 +11,7 @@ const mongoose = require('mongoose');
 //Controllers
 const auth_controller = require('./controllers/auth_controller');
 const note_controller = require('./controllers/note_controller');
+const shoppinglist_controller = require('./controllers/shoppinglist_controller');
 
 let app = express();
 
@@ -55,6 +56,12 @@ app.get('/', is_logged_handler, note_controller.get_notes);
 app.post('/delete-note', is_logged_handler, note_controller.post_delete_note);
 app.get('/note/:id', is_logged_handler, note_controller.get_note);
 app.post('/add-note', is_logged_handler, note_controller.post_note);
+
+//shoppinglists
+app.get('/', is_logged_handler, shoppinglist_controller.get_shoppinglists);
+app.post('/delete-shoppinglist', is_logged_handler, shoppinglist_controller.post_delete_shoppinglist);
+app.get('/shoppinglist/:id', is_logged_handler, shoppinglist_controller.get_shoppinglist);
+app.post('/add-shoppinglist', is_logged_handler, shoppinglist_controller.post_shoppinglist);
 
 app.use((req, res, next) => {
     res.status(404);
