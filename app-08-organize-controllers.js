@@ -1,3 +1,7 @@
+// osoite: http://localhost:8080/login
+// https://expressjs.com/en/starter/static-files.html
+// npm run start-dev
+
 const express = require('express');
 const PORT = process.env.PORT || 8080;
 const body_parser = require('body-parser');
@@ -60,7 +64,9 @@ app.use((req, res, next) => {
 });
 
 //Shutdown server CTRL + C in terminal
-const mongoose_url = 'mongodb+srv://db-user:1KRO2OhneATkq0Ke@cluster0-soknu.mongodb.net/test?retryWrites=true&w=majority';
+const mongoose_url = 
+"mongodb+srv://db-user:qkv3ezg72PXk2tW@cluster0-drnpu.mongodb.net/test?retryWrites=true&w=majority";
+
 
 mongoose.connect(mongoose_url, {
     useUnifiedTopology: true,
